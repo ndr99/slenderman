@@ -23,9 +23,9 @@ public class  Player {
     }
 
 
-    public boolean isMoveValid(int moveFromX, int moveFromY){
-        if(moveFromX >= 15 || moveFromY >= 15) return false;
-        return moveFromX >= 0 && moveFromY >= 0;
+    public boolean isMoveValid(int moveToX, int moveToY){
+        if(moveToX >= 15 || moveToY >= 15) return false;
+        return moveToX >= 0 && moveToY >= 0;
     }
 
     public void movement(char button){
@@ -47,12 +47,13 @@ public class  Player {
             default:
                 break;
         }
-            if(isMoveValid(xPosition, yPosition)){
+            if(isMoveValid(xPosition + x, yPosition + y)){
                 xPosition += x;
                 yPosition += y;
             } else {
                 System.err.println("Oda nem léphetsz!");
             }
+        System.out.println(xPosition + ", " + yPosition);
 
     }
 

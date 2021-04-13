@@ -2,7 +2,7 @@ public class World {
     private final int width = 15;
     private final int height = 15;
     private int[][] map;
-    private Player player = new Player(0,0,0);
+    Player player = new Player(0,0,0);
     // map
     public World() {
         map = new int[width][height];
@@ -49,7 +49,7 @@ public class World {
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
 
-                if(i == playerX && j == playerY){
+                if(i == playerY && j == playerX){
                     System.out.print("P ");
                 } else {
                     System.out.print(((map[j][i] > 0) ? map[j][i] : " ") + " ");
