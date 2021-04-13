@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class  Player {
 
@@ -25,13 +24,13 @@ public class  Player {
 
 
     public void movement(char button){
-        if(button == 's' && yPosition < 14){
+        if(button == 's' && getyPosition() < 14){
             yPosition++;
-        } else if(button == 'w' && yPosition > 0){
+        } else if(button == 'w' && getyPosition() > 0){
             yPosition--;
-        } else if(button == 'd' && xPosition < 14 ){
+        } else if(button == 'd' && getxPosition() < 14 ){
             yPosition++;
-        } else if(button == 'a' && xPosition > 0){
+        } else if(button == 'a' && getxPosition() > 0){
             yPosition--;
         }
     }
