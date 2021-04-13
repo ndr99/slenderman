@@ -23,7 +23,7 @@ public class  Player {
     }
 
 
-    public static boolean isMoveValid(int moveFromX, int moveFromY){
+    public boolean isMoveValid(int moveFromX, int moveFromY){
         if(moveFromX >= 15 || moveFromY >= 15) return false;
         return moveFromX >= 0 && moveFromY >= 0;
     }
