@@ -16,13 +16,12 @@ public class Game {
         Tile hordo = new Hordo(0,5,4, 2);
 
 
-        //World world = new World();
-        //world.draw();
 
         while(true){
+            Scanner sc = new Scanner(System.in);
             World world = new World();
             world.draw();
-            Scanner sc = new Scanner(System.in);
+
             char c = sc.next().charAt(0);
             if(c == 'q'){
                 break;

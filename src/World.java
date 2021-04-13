@@ -47,7 +47,7 @@ public class World {
             for (int j = 0; j < width; j++) {
 
                 if(i == playerX && j == playerY){
-                System.out.print("9 ");
+                System.out.print("P ");
                 }
 
                 System.out.print(((map[j][i] > 0)? map[j][i]: " ") + " ");
