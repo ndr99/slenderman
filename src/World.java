@@ -1,8 +1,8 @@
 public class World {
-    int width = 15;
-    int height = 15;
-    int[][] map;
-    Player player = new Player(0,0,0);
+    private final int width = 15;
+    private final int height = 15;
+    private int[][] map;
+    private Player player = new Player(0,0,0);
     // map
     public World() {
         map = new int[width][height];
@@ -38,6 +38,9 @@ public class World {
 
 
 
+
+
+
     public void draw() {
         System.out.println("pages: " + player.getPages());
         System.out.println();
@@ -47,10 +50,10 @@ public class World {
             for (int j = 0; j < width; j++) {
 
                 if(i == playerX && j == playerY){
-                System.out.print("P ");
+                    System.out.print("P ");
+                } else {
+                    System.out.print(((map[j][i] > 0) ? map[j][i] : " ") + " ");
                 }
-
-                System.out.print(((map[j][i] > 0)? map[j][i]: " ") + " ");
             }
             System.out.println();
         }

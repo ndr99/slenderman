@@ -16,18 +16,14 @@ public class Game {
         Tile hordo = new Hordo(0,5,4, 2);
 
 
-
-        while(true){
-            Scanner sc = new Scanner(System.in);
-            World world = new World();
+        World world = new World();
+        Scanner sc = new Scanner(System.in);
+        char c;
+        do{
             world.draw();
-
-            char c = sc.next().charAt(0);
-            if(c == 'q'){
-                break;
-            }
+            c = sc.next().charAt(0);
             player.movement(c);
-            sc.close();
-        }
+        } while(c != 'q');
+        sc.close();
     }
 }

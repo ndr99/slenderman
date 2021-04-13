@@ -1,8 +1,8 @@
 
 public class  Player {
 
-    int pages;
-    int xPosition, yPosition;
+    private int pages;
+    private int xPosition, yPosition;
 
     public Player(int pages, int xPosition, int yPosition) {
         this.pages = pages;
@@ -23,16 +23,37 @@ public class  Player {
     }
 
 
+    public static boolean isMoveValid(int moveFromX, int moveFromY){
+        if(moveFromX >= 15 || moveFromY >= 15) return false;
+        return moveFromX >= 0 && moveFromY >= 0;
+    }
+
     public void movement(char button){
-        if(button == 's' && getyPosition() < 14){
-            yPosition++;
-        } else if(button == 'w' && getyPosition() > 0){
-            yPosition--;
-        } else if(button == 'd' && getxPosition() < 14 ){
-            yPosition++;
-        } else if(button == 'a' && getxPosition() > 0){
-            yPosition--;
+        int x = 0;
+        int y = 0;
+        switch(button) {
+            case 's':
+                y++;
+                break;
+            case 'w':
+                y--;
+                break;
+            case 'd':
+                x++;
+                break;
+            case 'a':
+                x--;
+                break;
+            default:
+                break;
         }
+            if(isMoveValid(xPosition, yPosition)){
+                xPosition += x;
+                yPosition += y;
+            } else {
+                System.err.println("Oda nem léphetsz!");
+            }
+
     }
 
     public void pageFound(){
