@@ -36,17 +36,17 @@ public class World {
         }
     }
 
-
-
-
-
+    public int[][] getMap() {
+        return map;
+    }
 
     public void draw(Player player) {
-        //System.out.println("pages: " + player.getPages());
-        // System.out.println();
-        int playerX = player.getxPosition(); //nem valtozik az erteke
+
+        int playerX = player.getxPosition();
         int playerY = player.getyPosition();
-        System.out.println(playerX + ", " + playerY);
+        System.out.println("A játékos pozíciója: " + playerX + ", " + playerY);
+        System.out.println("Megszerzett lapok: " + player.getPages() + "/8");
+        System.out.println();
 
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {

@@ -1,4 +1,3 @@
-
 public class  Player {
 
     private int pages;
@@ -23,12 +22,24 @@ public class  Player {
     }
 
 
-    public boolean isMoveValid(int moveToX, int moveToY){
-        if(moveToX >= 15 || moveToY >= 15) return false;
-        return moveToX >= 0 && moveToY >= 0;
+    public boolean isMoveValid(int moveToX, int moveToY, World world){
+        if(moveToX >= 15 || moveToY >= 15) {
+            System.err.println("Nem mehetsz ki a pályáról!");
+            return false;
+        } else if(moveToX >= 0 && moveToY >= 0){
+            switch(world.getMap()[moveToX][moveToY]){
+                case 0, 1, 2 :
+                    return true;
+                default:
+                    System.err.println("Akadály! Oda nem léphetsz!");
+                    return false;
+            }
+        }
+        System.err.println("Nem mehetsz ki a pályáról!");
+        return false;
     }
 
-    public void movement(char button){
+    public void movement(char button, World world){
         int x = 0;
         int y = 0;
         switch(button) {
@@ -45,21 +56,16 @@ public class  Player {
                 x--;
                 break;
             default:
+                System.err.println("Hibás input, irányítás wasd-vel működik!");
                 break;
         }
-            if(isMoveValid(xPosition + x, yPosition + y)){
+            if(isMoveValid(xPosition + x, yPosition + y, world)) {
                 xPosition += x;
                 yPosition += y;
-            } else {
-                System.err.println("Oda nem léphetsz!");
             }
-        System.out.println(xPosition + ", " + yPosition);
-
     }
 
     public void pageFound(){
         this.pages++;
     }
-
-
 }

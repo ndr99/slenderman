@@ -22,7 +22,7 @@ public class Game {
         do{
             world.draw(player);
             c = sc.next().charAt(0);
-            player.movement(c);
+            player.movement(c, world);
         } while(c != 'q');
         sc.close();
     }
