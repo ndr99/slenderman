@@ -20,7 +20,7 @@ public class Game {
         Scanner sc = new Scanner(System.in);
         char c;
         do{
-            world.draw();
+            world.draw(player);
             c = sc.next().charAt(0);
             player.movement(c);
         } while(c != 'q');

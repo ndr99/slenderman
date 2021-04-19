@@ -2,18 +2,18 @@ public class World {
     private final int width = 15;
     private final int height = 15;
     private int[][] map;
-    Player player = new Player(0,0,0);
+
     // map
     public World() {
         map = new int[width][height];
-
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
+
                 Tile tile = Tile.getTile(x, y);
                 if (tile != null) {
                     if (tile.getType() == 3) {
                         Haz tile2 = (Haz) tile;
-                        for (int i = 0; i < tile.getSizeX(); i++) {
+                        for(int i = 0; i < tile.getSizeX(); i++) {
                             for (int j = 0; j < tile.getSizeY(); j++) {
                                 if (i == tile2.getDoorX() && j == tile2.getDoorY()) {
                                     map[x + i][y + j] = 0;
@@ -41,11 +41,13 @@ public class World {
 
 
 
-    public void draw() {
-        System.out.println("pages: " + player.getPages());
-        System.out.println();
-        int playerX = player.getxPosition();
+    public void draw(Player player) {
+        //System.out.println("pages: " + player.getPages());
+        // System.out.println();
+        int playerX = player.getxPosition(); //nem valtozik az erteke
         int playerY = player.getyPosition();
+        System.out.println(playerX + ", " + playerY);
+
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
 
