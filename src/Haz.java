@@ -6,7 +6,7 @@ public class Haz extends Tile{
     private int doorY;
 
     public Haz(int xPosition, int yPosition, int sizeX, int sizeY, int doorX, int doorY) {
-        super(3, xPosition, yPosition, true);
+        super(3, xPosition, yPosition);
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         this.doorX = doorX;

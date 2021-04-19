@@ -4,7 +4,7 @@ public class TeherAuto extends Tile{
     private int sizeY;
 
     public TeherAuto(int xPosition, int yPosition, int sizeX, int sizeY) {
-        super(5, xPosition, yPosition, true);
+        super(5, xPosition, yPosition);
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         Tile.addTile(this);

@@ -8,16 +8,16 @@ public class Tile {
     int xPosition, yPosition;
     int sizeX;
     int sizeY;
-    boolean barrier;
+
 
     public Tile() {
     }
 
-    public Tile(int type, int xPosition, int yPosition, boolean barrier) {
+    public Tile(int type, int xPosition, int yPosition) {
         this.type = type;
         this.xPosition = xPosition;
         this.yPosition = yPosition;
-        this.barrier = barrier;
+
     }
 
     public int getSizeX() {

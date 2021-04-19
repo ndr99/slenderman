@@ -4,7 +4,7 @@ public class Auto extends Tile{
     private int sizeY;
 
     public Auto(int xPosition, int yPosition, int sizeX, int sizeY) {
-        super(4, xPosition, yPosition, true);
+        super(4, xPosition, yPosition);
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         Tile.addTile(this);
