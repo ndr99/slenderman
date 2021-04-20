@@ -3,8 +3,8 @@ public class World {
     private final int height = 15;
     private int[][] map;
 
-    // map
     public World() {
+
         map = new int[width][height];
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -13,7 +13,7 @@ public class World {
                 if (tile != null) {
                     if (tile.getType() == 3) {
                         Haz tile2 = (Haz) tile;
-                        for(int i = 0; i < tile.getSizeX(); i++) {
+                        for (int i = 0; i < tile.getSizeX(); i++) {
                             for (int j = 0; j < tile.getSizeY(); j++) {
                                 if (i == tile2.getDoorX() && j == tile2.getDoorY()) {
                                     map[x + i][y + j] = 0;
@@ -34,6 +34,7 @@ public class World {
                 }
             }
         }
+        Tile.addPages();
     }
 
     public int[][] getMap() {
@@ -48,15 +49,36 @@ public class World {
         System.out.println("Megszerzett lapok: " + player.getPages() + "/8");
         System.out.println();
 
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if(i == playerY && j == playerX){
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                Tile tile = Tile.getTile(x, y); //papirok kiiratasa
+                if(tile != null && tile.hasPage){
+                    System.out.print("▒ ");
+                } else if(y == playerY && x == playerX) {
                     System.out.print("P ");
                 } else {
-                    System.out.print(((map[j][i] > 0) ? map[j][i] : " ") + " ");
+                    System.out.print(((map[x][y] > 0) ? map[x][y] : " ") + " ");
                 }
             }
             System.out.println();
         }
     }
+
+    /* papirok kiiratasa
+    public void draw2(){
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+
+                Tile tile = Tile.getTile(x, y);
+                if (tile != null && tile.hasPage) {
+                    System.out.print(1 + " ");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    */
+
 }

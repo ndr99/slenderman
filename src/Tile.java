@@ -8,15 +8,18 @@ public class Tile {
     int xPosition, yPosition;
     int sizeX;
     int sizeY;
+    boolean hasPage = false;
+    boolean canHavePage;
 
 
     public Tile() {
     }
 
-    public Tile(int type, int xPosition, int yPosition) {
+    public Tile(int type, int xPosition, int yPosition, boolean canHavePage) {
         this.type = type;
         this.xPosition = xPosition;
         this.yPosition = yPosition;
+        this.canHavePage = canHavePage;
 
     }
 
@@ -36,6 +39,10 @@ public class Tile {
         return yPosition;
     }
 
+    public int getType() {
+        return type;
+    }
+
     public static Tile getTile(int x, int y){
         for (Tile tile:tiles) {
             if(tile.getxPosition() == x && tile.getyPosition() == y){
@@ -46,8 +53,21 @@ public class Tile {
         return null;
     }
 
-    public int getType() {
-        return type;
+    public void addPage(){
+        if(canHavePage && !hasPage) {
+            hasPage = true;
+            Page.count++;
+        }
+    }
+    
+    public static void addPages(){
+        do {
+            for (Tile tile : tiles) {
+                if (Math.random() <= 0.1) {
+                    tile.addPage();
+                }
+            }
+        } while(Page.getCount() < 8);
     }
 
     public static void addTile(Tile tile){

@@ -4,7 +4,7 @@ public class Szikla extends Tile{
     private int sizeY;
 
     public Szikla(int xPosition, int yPosition, int sizeX, int sizeY) {
-        super(6, xPosition, yPosition);
+        super(6, xPosition, yPosition, true);
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         Tile.addTile(this);

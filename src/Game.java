@@ -12,7 +12,7 @@ public class Game {
         Tile haz = new Haz(8,2,6,7, 3, 0);
         Tile auto = new Auto(5,7, 2, 3);
         Tile teherauto = new TeherAuto(9,10, 3, 5);
-        Tile szikla = new Szikla(0,12,3,3);
+        Tile szikla = new Szikla(1,11,3,3);
         Tile hordo = new Hordo(0,5,4, 2);
 
 
