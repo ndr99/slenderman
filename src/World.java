@@ -50,7 +50,6 @@ public class World {
 
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-
                 if(i == playerY && j == playerX){
                     System.out.print("P ");
                 } else {

@@ -1,26 +1,15 @@
-public class  Player {
+public class  Player extends Character{
 
     private int pages;
-    private int xPosition, yPosition;
 
     public Player(int pages, int xPosition, int yPosition) {
+        super(xPosition, yPosition);
         this.pages = pages;
-        this.xPosition = xPosition;
-        this.yPosition = yPosition;
     }
 
     public int getPages() {
         return pages;
     }
-
-    public int getxPosition() {
-        return xPosition;
-    }
-
-    public int getyPosition() {
-        return yPosition;
-    }
-
 
     public boolean isMoveValid(int moveToX, int moveToY, World world){
         if(moveToX >= 15 || moveToY >= 15) {
