@@ -4,4 +4,5 @@ public class Page {
     public static int getCount() {
         return count;
     }
+
 }

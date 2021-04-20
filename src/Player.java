@@ -31,22 +31,12 @@ public class  Player extends Character{
     public void movement(char button, World world){
         int x = 0;
         int y = 0;
-        switch(button) {
-            case 's':
-                y++;
-                break;
-            case 'w':
-                y--;
-                break;
-            case 'd':
-                x++;
-                break;
-            case 'a':
-                x--;
-                break;
-            default:
-                System.err.println("Hibás input, irányítás wasd-vel működik!");
-                break;
+        switch (button) {
+            case 's' -> y++;
+            case 'w' -> y--;
+            case 'd' -> x++;
+            case 'a' -> x--;
+            default -> System.err.println("Hibás input, irányítás wasd-vel működik!");
         }
             if(isMoveValid(xPosition + x, yPosition + y, world)) {
                 xPosition += x;

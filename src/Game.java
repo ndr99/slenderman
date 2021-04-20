@@ -9,6 +9,7 @@ public class Game {
         Tile nagyfa1 = new NagyFa(3,1,2,2);
         Tile nagyfa2 = new NagyFa(0,8,2,2);
         Tile nagyfa3 = new NagyFa(13,10,2,2);
+        Tile nagyfa4 = new NagyFa(6,12,2,2);
         Tile haz = new Haz(8,2,6,7, 3, 0);
         Tile auto = new Auto(5,7, 2, 3);
         Tile teherauto = new TeherAuto(9,10, 3, 5);
