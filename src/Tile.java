@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Tile {
 
-    private static ArrayList<Tile> tiles = new ArrayList<>();
+    public static ArrayList<Tile> tiles = new ArrayList<>();
 
     int type;
     int xPosition, yPosition;
@@ -10,7 +10,6 @@ public class Tile {
     int sizeY;
     boolean hasPage = false;
     boolean canHavePage;
-    boolean slender;
 
 
     public Tile() {

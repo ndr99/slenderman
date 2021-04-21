@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Game {
     public static void main(String[] args) {
         Player player = new Player(0,0,0);
+        Slenderman slenderman = new Slenderman();
         Tile kisfa1 = new KisFa(1,1,1,1);
         Tile kisfa2 = new KisFa(5,2,1,1);
         Tile kisfa3 = new KisFa(5,10,1,1);
@@ -21,11 +22,12 @@ public class Game {
         Scanner sc = new Scanner(System.in);
         char c;
         do{
-            world.draw(player);
+            world.draw(player, slenderman);
             c = sc.next().charAt(0);
             player.movement(c, world);
+            slenderman.movement(player);
             if(player.getPages()== 8) {
-                world.draw(player);
+                world.draw(player, slenderman);
                 System.out.println("Nyertél!");
                 break;
             }

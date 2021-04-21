@@ -41,10 +41,13 @@ public class World {
         return map;
     }
 
-    public void draw(Player player) {
+    public void draw(Player player, Slenderman slenderman) {
 
         int playerX = player.getxPosition();
         int playerY = player.getyPosition();
+        int slenderX = slenderman.getxPosition();
+        int slenderY = slenderman.getyPosition();
+        System.out.println("Slenderman pozíciója: " + slenderX + ", " + slenderY);
         System.out.println("A játékos pozíciója: " + playerX + ", " + playerY);
         System.out.println("Megszerzett lapok: " + player.getPages() + "/8");
         System.out.println();
@@ -52,33 +55,17 @@ public class World {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 Tile tile = Tile.getTile(x, y);
-                if(tile != null && tile.hasPage){
-                    System.out.print("▒ ");         //papirok kiiratasa
-                } else if(y == playerY && x == playerX) {
-                    System.out.print("P ");
-                } else {
-                    System.out.print(((map[x][y] > 0) ? map[x][y] : " ") + " ");
-                }
+                    if(y == slenderY && x == slenderX){
+                        System.out.print("▒ ");         //papirok kiiratasa
+                    } else if(y == playerY && x == playerX) {
+                        System.out.print("P ");
+                    } else if(tile != null && tile.hasPage) {
+                        System.out.print("X ");
+                    } else {
+                        System.out.print(((map[x][y] > 0) ? map[x][y] : " ") + " ");
+                    }
             }
             System.out.println();
         }
     }
-
-    /* papirok kiiratasa
-    public void draw2(){
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-
-                Tile tile = Tile.getTile(x, y);
-                if (tile != null && tile.hasPage) {
-                    System.out.print(1 + " ");
-                } else {
-                    System.out.print(" ");
-                }
-            }
-            System.out.println();
-        }
-    }
-    */
-
 }
