@@ -41,10 +41,24 @@ public class  Player extends Character{
             if(isMoveValid(xPosition + x, yPosition + y, world)) {
                 xPosition += x;
                 yPosition += y;
+                pageFound();
             }
     }
 
     public void pageFound(){
-        this.pages++;
+        for (int i = 0; i < 15; i++) {
+            for (int j = 0; j < 15; j++) {
+                Tile tile = Tile.getTile(j, i);
+                if(tile != null && tile.hasPage) {
+                    if ((xPosition + 1 == tile.getxPosition() && yPosition == tile.yPosition) ||
+                            (xPosition - 1 == tile.getxPosition() && yPosition == tile.yPosition) ||
+                            (xPosition == tile.getxPosition() && yPosition + 1 == tile.yPosition) ||
+                            (xPosition == tile.getxPosition() && yPosition - 1 == tile.yPosition)){
+                        tile.hasPage = false;
+                        pages++;
+                    }
+                }
+            }
+        }
     }
 }

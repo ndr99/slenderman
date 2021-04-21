@@ -24,6 +24,11 @@ public class Game {
             world.draw(player);
             c = sc.next().charAt(0);
             player.movement(c, world);
+            if(player.getPages()== 8) {
+                world.draw(player);
+                System.out.println("Nyertél!");
+                break;
+            }
         } while(c != 'q');
         sc.close();
     }

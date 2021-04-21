@@ -10,6 +10,7 @@ public class Tile {
     int sizeY;
     boolean hasPage = false;
     boolean canHavePage;
+    boolean slender;
 
 
     public Tile() {

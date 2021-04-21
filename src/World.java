@@ -51,9 +51,9 @@ public class World {
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                Tile tile = Tile.getTile(x, y); //papirok kiiratasa
+                Tile tile = Tile.getTile(x, y);
                 if(tile != null && tile.hasPage){
-                    System.out.print("▒ ");
+                    System.out.print("▒ ");         //papirok kiiratasa
                 } else if(y == playerY && x == playerX) {
                     System.out.print("P ");
                 } else {
