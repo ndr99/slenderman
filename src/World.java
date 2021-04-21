@@ -49,14 +49,16 @@ public class World {
         int slenderY = slenderman.getyPosition();
         System.out.println("Slenderman pozíciója: " + slenderX + ", " + slenderY);
         System.out.println("A játékos pozíciója: " + playerX + ", " + playerY);
+        System.out.println("Slender lepese: " + slenderman.getStepCount());
+        System.out.println("Manhattan-távolság: " + Character.manhattanDistance(playerX, slenderX, playerY, slenderY));
         System.out.println("Megszerzett lapok: " + player.getPages() + "/8");
         System.out.println();
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 Tile tile = Tile.getTile(x, y);
-                    if(y == slenderY && x == slenderX){
-                        System.out.print("▒ ");         //papirok kiiratasa
+                    if(y == slenderY && x == slenderX && slenderman.isVisible(player)){
+                        System.out.print("▒ ");
                     } else if(y == playerY && x == playerX) {
                         System.out.print("P ");
                     } else if(tile != null && tile.hasPage) {

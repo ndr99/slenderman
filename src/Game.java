@@ -26,6 +26,10 @@ public class Game {
             c = sc.next().charAt(0);
             player.movement(c, world);
             slenderman.movement(player);
+            if(slenderman.isGameOver(player)){
+                System.out.println("Elkapott!");
+                break;
+            }
             if(player.getPages()== 8) {
                 world.draw(player, slenderman);
                 System.out.println("Nyertél!");
