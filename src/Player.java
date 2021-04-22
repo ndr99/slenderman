@@ -16,13 +16,11 @@ public class  Player extends Character{
             System.err.println("Nem mehetsz ki a pályáról!");
             return false;
         } else if(moveToX >= 0 && moveToY >= 0){
-            switch(world.getMap()[moveToX][moveToY]){
-                case 0, 1, 2 :
-                    return true;
-                default:
-                    System.err.println("Akadály! Oda nem léphetsz!");
-                    return false;
+            if(world.getMap()[moveToX][moveToY] < 3) {
+                return true;
             }
+            System.err.println("Akadály! Oda nem léphetsz!");
+            return false;
         }
         System.err.println("Nem mehetsz ki a pályáról!");
         return false;
@@ -32,11 +30,11 @@ public class  Player extends Character{
         int x = 0;
         int y = 0;
         switch (button) {
-            case 's' -> y++;
-            case 'w' -> y--;
-            case 'd' -> x++;
-            case 'a' -> x--;
-            default -> System.err.println("Hibás input, irányítás wasd-vel működik!");
+            case 's': y++;
+            case 'w': y--;
+            case 'd': x++;
+            case 'a': x--;
+            default: System.err.println("Hibás input, irányítás wasd-vel működik!");
         }
             if(isMoveValid(xPosition + x, yPosition + y, world)) {
                 xPosition += x;
