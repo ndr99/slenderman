@@ -24,7 +24,7 @@ public class Game {
         do{
             world.draw(player, slenderman);
             c = sc.next().charAt(0);
-            player.movement(c, world);
+            player.movement(c, world, slenderman);
             slenderman.movement(player);
             if(slenderman.isGameOver(player)){
                 System.out.println("Elkapott!");

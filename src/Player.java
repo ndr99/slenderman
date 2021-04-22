@@ -28,7 +28,7 @@ public class  Player extends Character{
         return false;
     }
 
-    public void movement(char button, World world){
+    public void movement(char button, World world, Slenderman slenderman){
         int x = 0;
         int y = 0;
         switch (button) {
