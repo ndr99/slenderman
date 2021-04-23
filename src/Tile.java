@@ -53,24 +53,14 @@ public class Tile {
         return null;
     }
 
-    public void addPage(){
-        if(canHavePage && !hasPage) {
-            hasPage = true;
-            Page.count++;
-        }
-    }
-    
-    public static void addPages(){
-        do {
-            for (Tile tile : tiles) {
-                if (Math.random() <= 0.1) {
-                    tile.addPage();
-                }
-            }
-        } while(Page.getCount() < 8);
-    }
-
     public static void addTile(Tile tile){
         tiles.add(tile);
     }
+
+    public void addPage(){}
+
+    public static ArrayList<Tile> getTileList(){
+        return tiles;
+    }
+
 }

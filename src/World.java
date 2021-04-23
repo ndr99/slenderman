@@ -1,18 +1,16 @@
 public class World {
-    private final int width = 15;
-    private final int height = 15;
-    private int[][] map;
+    public static final int BOARD_SIZE = 15;
+    private int[][] map = new int[BOARD_SIZE][BOARD_SIZE];;
 
     public World() {
 
-        map = new int[width][height];
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+        for (int y = 0; y < BOARD_SIZE; y++) {
+            for (int x = 0; x < BOARD_SIZE; x++) {
 
                 Tile tile = Tile.getTile(x, y);
                 if (tile != null) {
                     if (tile.getType() == 3) {
-                        Haz tile2 = (Haz) tile;
+                        House tile2 = (House) tile;
                         for (int i = 0; i < tile.getSizeX(); i++) {
                             for (int j = 0; j < tile.getSizeY(); j++) {
                                 if (i == tile2.getDoorX() && j == tile2.getDoorY()) {
@@ -34,14 +32,13 @@ public class World {
                 }
             }
         }
-        Tile.addPages();
     }
 
     public int[][] getMap() {
         return map;
     }
 
-    public void draw(Player player, Slenderman slenderman) {
+    public void draw(Player player, Enemy slenderman, int[][] pageMap) {
 
         int playerX = player.getxPosition();
         int playerY = player.getyPosition();
@@ -49,20 +46,19 @@ public class World {
         int slenderY = slenderman.getyPosition();
         System.out.println("Slenderman pozíciója: " + slenderX + ", " + slenderY);
         System.out.println("A játékos pozíciója: " + playerX + ", " + playerY);
-        System.out.println("Slender lepese: " + slenderman.getStepCount());
+        //System.out.println("Slender lepese: " + slenderman.getStepCount()); nem mukodik
         System.out.println("Manhattan-távolság: " + Character.manhattanDistance(playerX, slenderX, playerY, slenderY));
-        System.out.println("Lépések száma, amióta követi: " + slenderman.getFollowCount());
+        //System.out.println("Lépések száma, amióta követi: " + slenderman.getFollowCount());
         System.out.println("Megszerzett lapok: " + player.getPages() + "/8");
         System.out.println();
 
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                Tile tile = Tile.getTile(x, y);
+        for (int y = 0; y < BOARD_SIZE; y++) {
+            for (int x = 0; x < BOARD_SIZE; x++) {
                     if(y == slenderY && x == slenderX && slenderman.isVisible(player)){
                         System.out.print("▒ ");
                     } else if(y == playerY && x == playerX) {
                         System.out.print("P ");
-                    } else if(tile != null && tile.hasPage) {
+                    } else if(pageMap[x][y] == 1 && Character.manhattanDistance(playerX, x, playerY, y) < 3) {
                         System.out.print("X ");
                     } else {
                         System.out.print(((map[x][y] > 0) ? map[x][y] : " ") + " ");

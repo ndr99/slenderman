@@ -26,33 +26,40 @@ public class  Player extends Character{
         return false;
     }
 
-    public void movement(char button, World world, Slenderman slenderman){
+    public void movement(char button, World world, Enemy slenderman){
         int x = 0;
         int y = 0;
         switch (button) {
             case 's': y++;
+                break;
             case 'w': y--;
+                break;
             case 'd': x++;
+                break;
             case 'a': x--;
+                break;
+            case 'q' : break;
             default: System.err.println("Hibás input, irányítás wasd-vel működik!");
         }
             if(isMoveValid(xPosition + x, yPosition + y, world)) {
                 xPosition += x;
                 yPosition += y;
-                pageFound();
+                pageFound(Page.pageMap);
+                if(xPosition == slenderman.getxPosition() && yPosition == slenderman.getyPosition()){
+                    slenderman.setGameOver(true);
+                }
             }
     }
 
-    public void pageFound(){
-        for (int i = 0; i < 15; i++) {
-            for (int j = 0; j < 15; j++) {
-                Tile tile = Tile.getTile(j, i);
-                if(tile != null && tile.hasPage) {
-                    if ((xPosition + 1 == tile.getxPosition() && yPosition == tile.yPosition) ||
-                            (xPosition - 1 == tile.getxPosition() && yPosition == tile.yPosition) ||
-                            (xPosition == tile.getxPosition() && yPosition + 1 == tile.yPosition) ||
-                            (xPosition == tile.getxPosition() && yPosition - 1 == tile.yPosition)){
-                        tile.hasPage = false;
+    public void pageFound(int[][] pageMap){
+        for (int y = 0; y < World.BOARD_SIZE; y++) {
+            for (int x = 0; x < World.BOARD_SIZE; x++) {
+                if(pageMap[x][y] == 1) {
+                    if ((xPosition + 1 == x && yPosition == y) ||
+                            (xPosition - 1 == x && yPosition == y) ||
+                            (xPosition == x && yPosition + 1 == y) ||
+                            (xPosition == x && yPosition - 1 == y)){
+                        pageMap[x][y] = 0;
                         pages++;
                     }
                 }

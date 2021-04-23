@@ -3,26 +3,28 @@ import java.util.Scanner;
 public class Game {
     public static void main(String[] args) {
         Player player = new Player(0,0,0);
-        Slenderman slenderman = new Slenderman();
-        Tile kisfa1 = new KisFa(1,1,1,1);
-        Tile kisfa2 = new KisFa(5,2,1,1);
-        Tile kisfa3 = new KisFa(5,10,1,1);
-        Tile nagyfa1 = new NagyFa(3,1,2,2);
-        Tile nagyfa2 = new NagyFa(0,8,2,2);
-        Tile nagyfa3 = new NagyFa(13,10,2,2);
-        Tile nagyfa4 = new NagyFa(6,12,2,2);
-        Tile haz = new Haz(8,2,6,7, 3, 0);
-        Tile auto = new Auto(5,7, 2, 3);
-        Tile teherauto = new TeherAuto(9,10, 3, 5);
-        Tile szikla = new Szikla(1,11,3,3);
-        Tile hordo = new Hordo(0,5,4, 2);
+        Enemy slenderman = new Enemy();
+        Tile st1 = new SmallTree(1,1,1,1);
+        Tile st2 = new SmallTree(5,2,1,1);
+        Tile st3 = new SmallTree(5,10,1,1);
+        Tile bt1 = new BigTree(3,1,2,2);
+        Tile bt2 = new BigTree(0,8,2,2);
+        Tile bt3 = new BigTree(13,10,2,2);
+        Tile bt4 = new BigTree(6,12,2,2);
+        Tile house = new House(8,2,6,7, 3, 0);
+        Tile car = new Car(5,7, 2, 3);
+        Tile truck = new Truck(9,10, 3, 5);
+        Tile rock = new Rock(1,11,3,3);
+        Tile barrel = new Barrel(0,5,4, 2);
+        
 
-
+        
+        Page.generatePages();
         World world = new World();
         Scanner sc = new Scanner(System.in);
         char c;
         do{
-            world.draw(player, slenderman);
+            world.draw(player, slenderman, Page.pageMap);
             c = sc.next().charAt(0);
             player.movement(c, world, slenderman);
             slenderman.movement(player);
@@ -31,7 +33,7 @@ public class Game {
                 break;
             }
             if(player.getPages()== 8) {
-                world.draw(player, slenderman);
+                world.draw(player, slenderman, Page.pageMap);
                 System.out.println("Nyertél!");
                 break;
             }
