@@ -66,7 +66,6 @@ public class Enemy extends Character{
                 case 3:
                    calculateMove(0.33, player, 5);
                     break;
-                    
                 case 4:
                     calculateMove(0.5, player, 4);
                     break;
