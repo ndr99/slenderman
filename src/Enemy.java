@@ -2,7 +2,6 @@ public class Enemy extends Character{
     private int stepCount = 0;
     private int followCount = 0;
     private boolean gameOver = false;
-    boolean success = false;
 
     public Enemy() {
         super(World.BOARD_SIZE,World.BOARD_SIZE);
