@@ -32,50 +32,82 @@ public class Enemy extends Character{
 
         if(player.getPages() == 0) return;
 
-        do {
-            int x = (int)Math.round(Math.random()*14);
-            int y = (int)Math.round(Math.random()*14);
+        if(player.getxPosition() == xPosition && player.getyPosition() == yPosition){
+            gameIsOver(player);
+        }
 
             if (stepCount % 5 == 0) {
-                xPosition = x;
-                yPosition = y;
-                success = true;
+
+                xPosition = (int)Math.round(Math.random()*14);
+                yPosition = (int)Math.round(Math.random()*14);
+                stepCount++;
+                return;
             }
 
             switch (player.getPages()) {
+
                 case 1:
-                    if ((manhattanDistance(player.getxPosition(), x, player.getyPosition(), y) >= 5)) {
+                    int x;
+                    int y;
+                    do {
+
+                         x = (int)Math.round(Math.random()*14);
+                         y = (int)Math.round(Math.random()*14);
+                        
+                    } while ((manhattanDistance(player.getxPosition(), x, player.getyPosition(), y) < 5));
+                        
                         xPosition = x;
                         yPosition = y;
-                        success = true;
-                    }
+                        break;
+                        
+                    
                 case 2:
+                    calculateMove(0.33, player, 5);
+                    break;
                 case 3:
-                    success = calculateMove(0.33, player, x, y, 5);
+                   calculateMove(0.33, player, 5);
+                    break;
+                    
                 case 4:
+                    calculateMove(0.5, player, 4);
+                    break;
                 case 5:
-                    success = calculateMove(0.5, player, x, y, 4);
+                    calculateMove(0.5, player, 4);
+                    break;
                 case 6:
+                    calculateMove(0.66, player, 3);
+                    break;
                 case 7:
-                    success = calculateMove(0.66, player, x, y, 3);
+                    calculateMove(0.66, player, 3);
+                    break;
             }
-        } while(!success);
 
         stepCount++;
-
     }
 
-    private boolean calculateMove(double chance, Player player, int x, int y, int distance){
+    private void calculateMove(double chance, Player player, int distance){
+
+        boolean success = false;
+        int x;
+        int y;
+
         if (Math.random() <= chance && follow(player)) {
             gameIsOver(player);
-            return true;
+            return;
         }
-        if ((manhattanDistance(player.getxPosition(), x, player.getyPosition(), y) <= distance)) {
-            xPosition = x;
-            yPosition = y;
-            return true;
-        }
-        return false;
+
+        do{
+            x = (int)Math.round(Math.random()*14);
+            y = (int)Math.round(Math.random()*14);
+
+            
+            if ((manhattanDistance(player.getxPosition(), x, player.getyPosition(), y) <= distance)) {
+                xPosition = x;
+                yPosition = y;
+                success =  true;
+            }
+        }while(!success);
+      
     }
 
     private boolean follow(Player player){
