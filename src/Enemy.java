@@ -33,6 +33,7 @@ public class Enemy extends Character{
 
         if(player.getxPosition() == xPosition && player.getyPosition() == yPosition){
             gameIsOver(player);
+            return;
         }
 
             if (stepCount % 5 == 0) {

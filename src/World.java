@@ -49,7 +49,7 @@ public class World {
         //System.out.println("Slender lepese: " + slenderman.getStepCount());
         //System.out.println("Manhattan-távolság Slenderman és közted: " + Character.manhattanDistance(playerX, slenderX, playerY, slenderY));
         //System.out.println("Lépések száma, amióta követi: " + slenderman.getFollowCount());
-        System.out.println("Megszerzett lapok: " + player.getPages() + "/8");
+        System.out.println("Pages: " + player.getPages() + "/8");
         System.out.println();
 
         for (int y = 0; y < BOARD_SIZE; y++) {

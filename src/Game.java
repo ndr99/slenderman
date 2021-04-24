@@ -7,15 +7,15 @@ public class Game {
         Tile st1 = new SmallTree(1,1,1,1);
         Tile st2 = new SmallTree(5,2,1,1);
         Tile st3 = new SmallTree(5,10,1,1);
-        Tile bt1 = new BigTree(3,1,2,2);
+        Tile bt1 = new BigTree(3,0,2,2);
         Tile bt2 = new BigTree(0,8,2,2);
-        Tile bt3 = new BigTree(13,10,2,2);
-        Tile bt4 = new BigTree(6,12,2,2);
-        Tile house = new House(8,2,6,7, 3, 0);
-        Tile car = new Car(5,7, 2, 3);
-        Tile truck = new Truck(9,10, 3, 5);
+        Tile bt3 = new BigTree(13,11,2,2);
+        Tile bt4 = new BigTree(6,13,2,2);
+        Tile house = new House(8,1,6,7, 3, 0);
+        Tile car = new Car(5,6, 2, 3);
+        Tile truck = new Truck(9,9, 3, 5);
         Tile rock = new Rock(1,11,3,3);
-        Tile barrel = new Barrel(0,5,4, 2);
+        Tile barrel = new Barrel(0,4,4, 2);
         
 
         
