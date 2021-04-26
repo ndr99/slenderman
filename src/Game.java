@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Game {
     public static void main(String[] args) {
         Player player = new Player(0,0,0);
-        Enemy slenderman = new Enemy();
+        Enemy slender = new Enemy();
         Tile st1 = new SmallTree(1,1,1,1);
         Tile st2 = new SmallTree(5,2,1,1);
         Tile st3 = new SmallTree(5,10,1,1);
@@ -29,16 +29,16 @@ public class Game {
         Scanner sc = new Scanner(System.in);
         char c;
         do{
-            world.draw(player, slenderman, Page.pageMap);
+            world.draw(player, slender, Page.pageMap);
             c = sc.next().charAt(0);
-            player.movement(c, world, slenderman);
-            slenderman.movement(player);
-            if(slenderman.isGameOver(player)){
+            player.movement(c, world, slender);
+            slender.movement(player);
+            if(slender.isGameOver(player)){
                 System.out.println("Elkapott!");
                 break;
             }
             if(player.getPages()== 8) {
-                world.draw(player, slenderman, Page.pageMap);
+                world.draw(player, slender, Page.pageMap);
                 System.out.println("Nyertél!");
                 break;
             }
