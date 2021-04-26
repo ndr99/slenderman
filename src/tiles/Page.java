@@ -1,6 +1,11 @@
+package tiles;
+
+
+import map.World;
+
 public class Page {
     static int count = 0;
-    static int[][] pageMap = new int[World.BOARD_SIZE][World.BOARD_SIZE];
+    public static int[][] pageMap = new int[World.BOARD_SIZE][World.BOARD_SIZE];
     private int x;
     private int y;
 
@@ -19,10 +24,10 @@ public class Page {
         }while(count < 8);
     }
 
-    public static int getCount() {
-        return count;
-    }
+/*
+    public static int getCount() { return count; }
 
     public static int[][] getPageMap(){ return pageMap; }
+ */
 
 }

@@ -1,10 +1,14 @@
-public class Barrel extends Tile{
+package tiles;
+
+import tiles.Tile;
+
+public class Truck extends Tile {
 
     private int sizeX;
     private int sizeY;
 
-    public Barrel(int xPosition, int yPosition, int sizeX, int sizeY) {
-        super(7, xPosition, yPosition, true);
+    public Truck(int xPosition, int yPosition, int sizeX, int sizeY) {
+        super(5, xPosition, yPosition, true);
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         Tile.addTile(this);
@@ -27,7 +31,8 @@ public class Barrel extends Tile{
         int x = (int)(Math.random()*sizeX);
         int y = (int)(Math.random()*sizeY);
 
-        new Page(xPosition + x,yPosition + y);
+        if(x == 1 && y > 0 && y < 4) return;
+        new Page(this.xPosition+x, this.yPosition+y);
         hasPage = true;
     }
 }

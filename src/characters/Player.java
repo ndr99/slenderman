@@ -1,4 +1,9 @@
-public class  Player extends Character{
+package characters;
+import characters.Enemy;
+import map.World;
+import tiles.Page;
+
+public class  Player extends Character {
 
     private int pages;
 

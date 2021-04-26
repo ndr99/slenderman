@@ -1,10 +1,12 @@
-public class Enemy extends Character{
+package characters;
+
+public class Enemy extends Character {
     private int stepCount = 0;
     private int followCount = 0;
     private boolean gameOver = false;
 
     public Enemy() {
-        super(World.BOARD_SIZE,World.BOARD_SIZE);
+        super(15, 15);
     }
 
     public int getStepCount() {
@@ -24,7 +26,7 @@ public class Enemy extends Character{
     }
 
     public boolean isVisible(Player player) {
-        return (manhattanDistance(player.getxPosition(), xPosition, player.getyPosition(), yPosition)) <= 3;
+        return (Character.manhattanDistance(player.getxPosition(), xPosition, player.getyPosition(), yPosition)) <= 3;
     }
 
     public void movement(Player player) {
@@ -54,7 +56,7 @@ public class Enemy extends Character{
                          x = (int)Math.round(Math.random()*14);
                          y = (int)Math.round(Math.random()*14);
                         
-                    } while ((manhattanDistance(player.getxPosition(), x, player.getyPosition(), y) < 5));
+                    } while ((Character.manhattanDistance(player.getxPosition(), x, player.getyPosition(), y) < 5));
                         
                         xPosition = x;
                         yPosition = y;
@@ -100,7 +102,7 @@ public class Enemy extends Character{
             y = (int)Math.round(Math.random()*14);
 
             
-            if ((manhattanDistance(player.getxPosition(), x, player.getyPosition(), y) <= distance)) {
+            if ((Character.manhattanDistance(player.getxPosition(), x, player.getyPosition(), y) <= distance)) {
                 xPosition = x;
                 yPosition = y;
                 success =  true;
@@ -110,7 +112,7 @@ public class Enemy extends Character{
     }
 
     private boolean follow(Player player){
-        if(manhattanDistance(player.getxPosition(), xPosition, player.getyPosition(), yPosition) == 1){
+        if(Character.manhattanDistance(player.getxPosition(), xPosition, player.getyPosition(), yPosition) == 1){
             followCount++;
         } else {
             followCount = 0;

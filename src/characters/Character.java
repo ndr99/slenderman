@@ -1,3 +1,5 @@
+package characters;
+
 public class Character {
     int xPosition, yPosition;
 

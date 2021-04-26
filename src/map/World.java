@@ -1,3 +1,11 @@
+package map;
+
+import characters.Character;
+import characters.Enemy;
+import characters.Player;
+import tiles.House;
+import tiles.Tile;
+
 public class World {
     public static final int BOARD_SIZE = 15;
     private int[][] map = new int[BOARD_SIZE][BOARD_SIZE];;
@@ -47,7 +55,7 @@ public class World {
         //System.out.println("Slenderman pozíciója: " + slenderX + ", " + slenderY);
         //System.out.println("A játékos pozíciója: " + playerX + ", " + playerY);
         //System.out.println("Slender lepese: " + slenderman.getStepCount());
-        //System.out.println("Manhattan-távolság Slenderman és közted: " + Character.manhattanDistance(playerX, slenderX, playerY, slenderY));
+        //System.out.println("Manhattan-távolság Slenderman és közted: " + characters.Character.manhattanDistance(playerX, slenderX, playerY, slenderY));
         //System.out.println("Lépések száma, amióta követi: " + slenderman.getFollowCount());
         System.out.println("Pages: " + player.getPages() + "/8");
         System.out.println();

@@ -1,10 +1,12 @@
-public class Car extends Tile{
+package tiles;
+
+public class BigTree extends Tile {
 
     private int sizeX;
     private int sizeY;
 
-    public Car(int xPosition, int yPosition, int sizeX, int sizeY) {
-        super(4, xPosition, yPosition, true);
+    public BigTree(int xPosition, int yPosition, int sizeX, int sizeY) {
+        super(2, xPosition, yPosition, true);
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         Tile.addTile(this);
@@ -24,10 +26,10 @@ public class Car extends Tile{
     public void addPage() {
         if(!canHavePage || hasPage) return;
 
-        int x = (int)(Math.random()*sizeX);
-        int y = (int)(Math.random()*sizeY);
+        int x = (int)Math.round(Math.random());
+        int y = (int)Math.round(Math.random());
 
-        new Page(xPosition + x,yPosition + y);
+        new Page(this.xPosition+x, this.yPosition+y);
         hasPage = true;
     }
 }

@@ -1,10 +1,12 @@
-public class BigTree extends Tile{
+package tiles;
+
+public class Barrel extends Tile {
 
     private int sizeX;
     private int sizeY;
 
-    public BigTree(int xPosition, int yPosition, int sizeX, int sizeY) {
-        super(2, xPosition, yPosition, true);
+    public Barrel(int xPosition, int yPosition, int sizeX, int sizeY) {
+        super(7, xPosition, yPosition, true);
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         Tile.addTile(this);
@@ -24,10 +26,10 @@ public class BigTree extends Tile{
     public void addPage() {
         if(!canHavePage || hasPage) return;
 
-        int x = (int)Math.round(Math.random());
-        int y = (int)Math.round(Math.random());
+        int x = (int)(Math.random()*sizeX);
+        int y = (int)(Math.random()*sizeY);
 
-        new Page(this.xPosition+x, this.yPosition+y);
+        new Page(xPosition + x,yPosition + y);
         hasPage = true;
     }
 }

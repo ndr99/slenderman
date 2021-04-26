@@ -1,4 +1,8 @@
-public class SmallTree extends Tile{
+package tiles;
+
+import tiles.Tile;
+
+public class SmallTree extends Tile {
 
     private int sizeX;
     private int sizeY;

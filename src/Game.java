@@ -1,3 +1,8 @@
+import characters.Enemy;
+import characters.Player;
+import map.World;
+import tiles.*;
+
 import java.util.Scanner;
 
 public class Game {

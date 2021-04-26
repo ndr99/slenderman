@@ -1,4 +1,6 @@
-public class House extends Tile{
+package tiles;
+
+public class House extends Tile {
 
     private int sizeX;
     private int sizeY;

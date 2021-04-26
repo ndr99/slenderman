@@ -1,10 +1,12 @@
-public class Rock extends Tile{
+package tiles;
+
+public class Car extends Tile {
 
     private int sizeX;
     private int sizeY;
 
-    public Rock(int xPosition, int yPosition, int sizeX, int sizeY) {
-        super(6, xPosition, yPosition, true);
+    public Car(int xPosition, int yPosition, int sizeX, int sizeY) {
+        super(4, xPosition, yPosition, true);
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         Tile.addTile(this);
@@ -27,7 +29,7 @@ public class Rock extends Tile{
         int x = (int)(Math.random()*sizeX);
         int y = (int)(Math.random()*sizeY);
 
-        if(x != 1 && y != 1) new Page(this.xPosition+x, this.yPosition+y);
+        new Page(xPosition + x,yPosition + y);
         hasPage = true;
     }
 }
