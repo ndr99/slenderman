@@ -9,14 +9,6 @@ public class Enemy extends Character {
         super(15, 15);
     }
 
-    public int getStepCount() {
-        return stepCount;
-    }
-
-    public int getFollowCount() {
-        return followCount;
-    }
-
     public void setGameOver(boolean gameOver) {
         this.gameOver = gameOver;
     }

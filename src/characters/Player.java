@@ -1,5 +1,5 @@
 package characters;
-import characters.Enemy;
+
 import map.World;
 import tiles.Page;
 

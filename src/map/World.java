@@ -52,12 +52,9 @@ public class World {
         int playerY = player.getyPosition();
         int slenderX = slenderman.getxPosition();
         int slenderY = slenderman.getyPosition();
-        //System.out.println("Slenderman pozíciója: " + slenderX + ", " + slenderY);
-        //System.out.println("A játékos pozíciója: " + playerX + ", " + playerY);
-        //System.out.println("Slender lepese: " + slenderman.getStepCount());
-        //System.out.println("Manhattan-távolság Slenderman és közted: " + characters.Character.manhattanDistance(playerX, slenderX, playerY, slenderY));
-        //System.out.println("Lépések száma, amióta követi: " + slenderman.getFollowCount());
-        System.out.println("Pages: " + player.getPages() + "/8");
+
+        System.out.println("A pozíciód: x = " + playerX + ", y = " + playerY);
+        System.out.println("Összegyűjtött papírjaid: " + player.getPages() + "/8");
         System.out.println();
 
         for (int y = 0; y < BOARD_SIZE; y++) {

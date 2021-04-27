@@ -1,7 +1,5 @@
 package tiles;
 
-import tiles.Tile;
-
 public class Truck extends Tile {
 
     private int sizeX;

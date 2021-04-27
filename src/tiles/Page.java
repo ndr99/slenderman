@@ -1,6 +1,5 @@
 package tiles;
 
-
 import map.World;
 
 public class Page {
@@ -23,11 +22,5 @@ public class Page {
             }
         }while(count < 8);
     }
-
-/*
-    public static int getCount() { return count; }
-
-    public static int[][] getPageMap(){ return pageMap; }
- */
 
 }
